@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Bhavesh/StudioProjects/WeatherReport/app/src/main/res/layout/activity_main.xml" value="0.12771739130434784" />
+        <entry key="..\:/Users/Bhavesh/StudioProjects/WeatherReport/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Bhavesh/StudioProjects/WeatherReport/app/src/main/res/layout/city_fragment.xml" value="0.14719202898550723" />
         <entry key="..\:/Users/Bhavesh/StudioProjects/WeatherReport/app/src/main/res/layout/fragment_weather.xml" value="0.12771739130434784" />
         <entry key="..\:/Users/Bhavesh/StudioProjects/WeatherReport/app/src/main/res/layout/single_item.xml" value="0.12771739130434784" />
       </map>

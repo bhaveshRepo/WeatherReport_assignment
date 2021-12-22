@@ -19,7 +19,7 @@ class WeatherViewModel(val weatherRepository: WeatherRepository) : ViewModel(){
     var weatherResponse: WeatherResponse? = null
 
     init {
-        getData("Delhi")
+        getData("London,uk")
     }
     fun getData(city_name : String){
         viewModelScope.launch {
@@ -35,7 +35,7 @@ class WeatherViewModel(val weatherRepository: WeatherRepository) : ViewModel(){
         } catch (t : Throwable){
             when(t){
                 is IOException -> weatherResource.postValue(Resource.Error("Network Failure"))
-                else -> weatherResource.postValue(Resource.Error("Conversion Failure"))
+                else -> weatherResource.postValue(Resource.Error(t.message.toString()))
             }
         }
     }

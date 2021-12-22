@@ -6,6 +6,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 class ApiInstance {
@@ -27,7 +28,7 @@ class ApiInstance {
 
           Retrofit.Builder()
               .baseUrl(Constants.base_url)
-              .addConverterFactory(MoshiConverterFactory.create(moshi))
+              .addConverterFactory(GsonConverterFactory.create())
               .client(client)
               .build()
         }

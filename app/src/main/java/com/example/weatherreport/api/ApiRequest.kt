@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 interface ApiRequest {
 
-    @GET("/forecast")
+    @GET("/data/2.5/forecast")
     suspend fun getForecast(
         @Query("q")
         city_name: String,

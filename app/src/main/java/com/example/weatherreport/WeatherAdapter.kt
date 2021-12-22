@@ -13,7 +13,7 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>() 
 
     private val diffCallBack = object : DiffUtil.ItemCallback<WeatherModel>() {
         override fun areItemsTheSame(oldItem: WeatherModel, newItem: WeatherModel): Boolean {
-            return oldItem == newItem
+            return oldItem.dt == newItem.dt
         }
 
         override fun areContentsTheSame(oldItem: WeatherModel, newItem: WeatherModel): Boolean {
@@ -36,7 +36,7 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>() 
     override fun onBindViewHolder(holder: WeatherViewHolder, position: Int) {
         val weatherItem = differ.currentList[position]
         holder.itemView.apply {
-            tv_date.text = weatherItem.dt_txt
+            tv_date.text = "Temprature = ${weatherItem.main?.temp.toString()}"
         }
     }
 
