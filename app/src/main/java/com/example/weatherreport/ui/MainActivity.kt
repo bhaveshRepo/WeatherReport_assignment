@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var activityViewModel: WeatherViewModel
     lateinit var weatherAdapter: WeatherAdapter
 
+    private var countryName : String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -33,6 +35,10 @@ class MainActivity : AppCompatActivity() {
         activityViewModel = ViewModelProvider(this,weatherViewModelProviderFactory)
             .get(WeatherViewModel::class.java)
         setContentView(R.layout.activity_main)
+
+
+        countryName = intent.getStringExtra("country")
+        activityViewModel.getData(countryName!!)
 
         setUpRecyclerView()
 

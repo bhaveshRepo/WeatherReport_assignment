@@ -18,9 +18,10 @@ class WeatherViewModel(val weatherRepository: WeatherRepository) : ViewModel(){
     val weatherResource : MutableLiveData<Resource<WeatherResponse>> = MutableLiveData()
     var weatherResponse: WeatherResponse? = null
 
-    init {
-        getData("London,uk")
-    }
+//    init {
+//        getData("London,uk")
+//    }
+
     fun getData(city_name : String){
         viewModelScope.launch {
             safeCallData(city_name)

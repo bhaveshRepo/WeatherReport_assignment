@@ -13,6 +13,8 @@ interface ApiRequest {
     suspend fun getForecast(
         @Query("q")
         city_name: String,
+        @Query("units")
+        units: String = "metric",
         @Query("appid")
         app_id : String = Constants.api_key
 

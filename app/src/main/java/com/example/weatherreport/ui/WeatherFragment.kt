@@ -1,6 +1,7 @@
 package com.example.weatherreport.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -16,9 +17,9 @@ import kotlinx.android.synthetic.main.fragment_weather.*
 
 class WeatherFragment : Fragment(R.layout.fragment_weather) {
 
+    private val TAG: String = "MainActivity"
     lateinit var viewModel: WeatherViewModel
     lateinit var weatherAdapter: WeatherAdapter
-
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,6 +40,7 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
                     hideProgressBar()
                     it.message?.let {
                         Toast.makeText(context,"Error Occurred : $it",Toast.LENGTH_SHORT).show()
+                        Log.e(TAG, it)
                     }
                 }
                 is Resource.Loading -> {
@@ -66,6 +68,4 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
         paginationProgressBar.visibility = View.VISIBLE
 
     }
-
-
 }

@@ -11,6 +11,8 @@ import kotlinx.android.synthetic.main.single_item.view.*
 
 class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>() {
 
+
+
     private val diffCallBack = object : DiffUtil.ItemCallback<WeatherModel>() {
         override fun areItemsTheSame(oldItem: WeatherModel, newItem: WeatherModel): Boolean {
             return oldItem.dt == newItem.dt
@@ -36,7 +38,10 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>() 
     override fun onBindViewHolder(holder: WeatherViewHolder, position: Int) {
         val weatherItem = differ.currentList[position]
         holder.itemView.apply {
-            tv_date.text = "Temprature = ${weatherItem.main?.temp.toString()}"
+            tv_cityName.text = weatherItem.dt_txt.toString()
+            tv_currentTemp.text = "Temprature = ${weatherItem.main?.temp.toString()} \u2103 "
+            tv_min.text = weatherItem.main?.temp_min.toString() + "℃"
+            tv_max.text = weatherItem.main?.temp_max.toString() + "℃"
         }
     }
 
